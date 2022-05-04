@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">              
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <style>
+        :root{
+            --bg: #1F0812;
+            --header: #1F0812;
+            --font: #E4959E;
+        }
+        html, body{
+            padding: 0px;
+            margin: 0px;
+            font-family: 'Lucida Console', monospace;
+            min-height: 100%;
+        }
+        header{
+            height: 40px;
+            width: 100%;
+            position: absolute;
+            top: 0px;
+            border-bottom: 2px solid var(--font);
+            background-color: var(--header);
+            font-family: monospace;
+            text-align: center;
+            font-size: 0.7em;
+            font-style: italic;
+            color: var(--font);
+        }
+        footer{
+            background-color: white;
+            text-align: center;
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: auto;
+            padding: 5px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            border: 1px solid grey;
+            box-sizing: border-box;
+        }
+        a{
+            text-decoration: None;
+            color: black;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        main{
+            margin-top: 80px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 80%;
+
+            --num-cols: 2;
+            display: grid;
+            grid-template-columns: repeat(var(--num-cols), 1fr);
+            gap: 5px;
+        }
+        article{
+            width: 100%;
+            aspect-ratio: 1;
+            background-color: white;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid grey;
+        }
+        article:hover{
+            border: solid 1px black;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: scale-down;
+        }
+        .currentPage{
+            font-weight: bold;
+        }
+        @media screen and (max-width: 800px){
+            main{
+                --num-cols: 1;
+                width: 96%;
+            }
+        }
+    </style>
+</head>
+    {% block main %}
+    {% endblock %}
+</html>              

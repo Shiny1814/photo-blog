@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block main %}
+<body>
+    <header>
+        <h1>aksel.tk - galleri</h1>
+    </header>
+    <main>
+        {% for photo in photos %}
+            <article>
+                <a href="/image/{{photo}}">
+                    <img src="/static/{{photo}}"/>
+                </a>
+            </article>
+        {% endfor %}
+    </main>
+    <footer>
+        {% if currentIndex > 1 %}
+            <a href="/../{{ currentIndex-1 }}">forrige</a>
+        {% endif %}
+        {% for i in range(pages) %}
+            {% if i+1 == currentIndex %}
+                <a href="/{{ i+1 }}" class="currentPage">{{ i+1 }}</a>
+            {% else %}
+                <a href="/{{ i+1 }}">{{ i+1 }}</a>
+            {% endif %}
+        {% endfor %}
+        {% if currentIndex < pages %}
+            <a href="/../{{ currentIndex+1 }}">neste</a>
+        {% endif %}
+    </footer>
+</body>
+{% endblock %}
